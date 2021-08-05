@@ -1,25 +1,31 @@
 import { useState, useEffect } from "react";
 
+const urls = [
+  "https://anderspink.com/code-test/data/sports.json",
+  "https://anderspink.com/code-test/data/marketing.json",
+  "https://anderspink.com/code-test/data/environment.json",
+];
+
 export const Home = () => {
   const [newsFeed, setNewsFeed] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState();
 
-  const loadingFeed = () => {
-    fetch("https://anderspink.com/code-test/data/sports.json")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setNewsFeed(data);
-        setLoading(false);
-        setError(undefined);
+  const loadingFeed = async () => {
+    const results = await Promise.all(urls.map((url) => fetch(url)));
+    console.log(results);
+    const news = await Promise.all(
+      results.map((res) => {
+        if (!res.ok) {
+          throw Error("could not fetch data for the resource");
+        }
+        return res.json();
       })
-      .catch((er) => {
-        console.error("Error:", er);
-        setError(er.message);
-        setLoading(false);
-        setNewsFeed([]);
-      });
+    ).catch((err) => {
+      console.log(err.message);
+
+      setNewsFeed([]);
+    });
+    console.log(news);
+    setNewsFeed(news);
   };
 
   useEffect(() => {
@@ -30,22 +36,56 @@ export const Home = () => {
 
   return (
     <div className="App">
-      {error && <div>{error}</div>}
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        <ul>
+      <div>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Domain</th>
+            <th>Date</th>
+            <th>Content</th>
+            <th>Image</th>
+            <th>Category</th>
+          </tr>
           {newsFeed.length !== 0
-            ? newsFeed.map((news) => {
+            ? newsFeed.map((newsFirst) => {
                 return (
-                  <li key={news.id}>
-                    <>{news.title}</>
-                  </li>
+                  <div>
+                    {newsFirst !== undefined
+                      ? newsFirst.map((news) => {
+                          return (
+                            <div>
+                              <tbody key={news.id}>
+                                <tr>
+                                  <td>
+                                    {" "}
+                                    <a
+                                      href={news.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      {news.title}
+                                    </a>
+                                  </td>
+                                  <td> {news.domain}</td>
+                                  <td> {news.date}</td>
+                                  <td> {news.content}</td>
+                                  <td>
+                                    {" "}
+                                    <img src={news.image} alt="new"></img>
+                                  </td>
+                                  <td> {news.content}</td>
+                                </tr>
+                              </tbody>
+                            </div>
+                          );
+                        })
+                      : null}
+                  </div>
                 );
               })
             : null}
-        </ul>
-      )}
+        </table>
+      </div>
     </div>
   );
 };
