@@ -6,8 +6,8 @@ const Navbar = () => {
     <div className="navbar">
       <h2>Front-end task for Anders Pink</h2>
       <div>
-        <button Home></button>
-        <button Bookmarks></button>
+        <button>Home</button>
+        <button>Bookmarks</button>
       </div>
     </div>
   );

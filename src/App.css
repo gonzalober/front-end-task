@@ -18,11 +18,14 @@ body {
 
 button {
   border: 1px solid #eaeaea;
+  color: #596980;
   border-radius: 5px;
-  background-color: rgb(233, 232, 232);
+  background-color: #d8d8d8;
   text-align: center;
   display: inline-block;
   font-size: 16px;
   margin-right: 20px;
   cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
 }
