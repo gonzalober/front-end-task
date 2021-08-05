@@ -1,18 +1,13 @@
 # Front-end task
 
-```The purpouse of the project is working as an aggregator
-of different news from different sources.
+<p>
+The purpouse of the project is working as an aggregator of different news from different sources.
+</p>
 
-```
-
-```
-Keypoints to highlight: I spent a considerable amount of time
-displaying the home news-feed into an aligned table, which as
-a consequence I wasn't able to start with the bookmarks.
-That said, regarding buttons functionality could be done with
-its correspondent handlers and not causing much coding at first.
-The Bookmark route would be showing all the user's favourite articles.
-```
+<p>
+Keypoints to highlight: I spent a considerable amount of time displaying the home news-feed into an aligned table, which as a consequence I wasn't able to start with the bookmarks.
+That said, regarding buttons functionality could be done with its correspondent handlers and not causing much coding at first. The Bookmark route would be showing all the user's favourite articles.
+</p>
 
 ## Available Scripts
 
@@ -56,3 +51,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+```
+
+```
