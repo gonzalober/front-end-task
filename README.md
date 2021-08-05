@@ -1,12 +1,17 @@
 # Front-end task
 
-```The purpouse of the project is working as an aggregator of different news from different sources.
+```The purpouse of the project is working as an aggregator
+of different news from different sources.
 
 ```
 
 ```
-Keypoints to highlight: I spent a considerable amount of time displaying the home news feed into an aligned table, which as a consequence I wasn't able to start with the bookmarks.
-That said, regarding buttons functionality could be done with its correspondent handlers and not causing much coding at first. The Bookmark route would be showing all the user's favourite articles.
+Keypoints to highlight: I spent a considerable amount of time
+displaying the home news-feed into an aligned table, which as
+a consequence I wasn't able to start with the bookmarks.
+That said, regarding buttons functionality could be done with
+its correspondent handlers and not causing much coding at first.
+The Bookmark route would be showing all the user's favourite articles.
 ```
 
 ## Available Scripts
